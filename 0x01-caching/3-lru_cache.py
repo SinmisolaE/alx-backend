@@ -33,10 +33,10 @@ class LRUCache(BaseCaching):
         if key is not None and item is not None:
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 if key not in self.cache_data:
-                    least_use = list(self.sorted_cache.keys())[0]
-                    print("DISCARD: {}".format(least_use))
-                    del self.cache_data[least_use]
-                    del self.sorted_cache[least_use]
+                    least_recent = list(self.sorted_cache.keys())[0]
+                    print("DISCARD: {}".format(least_recent))
+                    del self.cache_data[least_recent]
+                    del self.sorted_cache[least_recent]
             self.cache_data[key] = item
             self.sorted_cache[key] = item
             self.sorted_cache.move_to_end(key)
