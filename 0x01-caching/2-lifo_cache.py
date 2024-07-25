@@ -29,7 +29,10 @@ class LIFOCache(BaseCaching):
            and following by a new line
         """
         if key is not None and item is not None:
-            if len(self.cache_data) >= BaseCaching.MAX_ITEMS and key not in self.cache_data:
+            if (
+                len(self.cache_data) >= BaseCaching.MAX_ITEMS
+                and key not in self.cache_data
+            ):
                 last_key = list(self.cache_data.keys())[-1]
                 print('DISCARD: {}'.format(last_key))
                 del self.cache_data[last_key]
