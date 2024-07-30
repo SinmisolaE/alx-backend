@@ -6,8 +6,8 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-app.route('/')
-def index:
+app.route('/', strict_slashes=False)
+def index() -> str:
     """ renders html page"""
     return render_template('0-index.html')
 

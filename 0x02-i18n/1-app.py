@@ -16,8 +16,8 @@ app = Flask(__name__)
 app.config.from_object(Config)
 babel = Babel(app)
 
-app.route('/')
-def index():
+app.route('/', strict_slashes=False)
+def index() -> str:
     """ renders html page"""
     return render_template('1-index.html')
 
